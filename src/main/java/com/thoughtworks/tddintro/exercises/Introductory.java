@@ -6,6 +6,7 @@ public class Introductory {
     public static void main(String args[]){
         int n = 5;
         asterisk();
+        horizontal(n);
         vertical(n);
         right(n);
         isosceles(n);
