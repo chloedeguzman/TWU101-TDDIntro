@@ -32,26 +32,31 @@ public class LibraryTest {
     }
 
     @Test
-    @Ignore // Remove each @Ignore and implement test
     public void shouldPrintBookTitleWhenThereIsOneBook() {
         String title = "Book Title";
+        System.setOut(printStream);
         books.add(title);
-
         library.listBooks();
-
-        // add a verify statement here that shows that the book title was printed by the printStream
+        verify(printStream).println(title + "\n");
     }
 
     @Test
-    @Ignore // Remove each @Ignore and implement test
     public void shouldPrintNothingWhenThereAreNoBooks() {
-
+        System.setOut(printStream);
+        library.listBooks();
+        verify(printStream).println("");
         // implement me
     }
 
     @Test
-    @Ignore // Remove each @Ignore and implement test
     public void shouldPrintBothBookTitlesWhenThereAreTwoBooks() throws IOException {
+        String title = "Book Title";
+        String title2 = "Book Title 2";
+        System.setOut(printStream);
+        books.add(title);
+        books.add(title2);
+        library.listBooks();
+        verify(printStream).println(title + "\n" + title2 + "\n");
         // implement me
     }
 
@@ -63,7 +68,8 @@ public class LibraryTest {
     }
 
     @Test
-    @Ignore // Remove each @Ignore and implement test
+    @Ignore
+    // I don't understand when/thenReturn
     public void shouldDeleteBookFromCollectionWhenRemovedByUser() throws IOException {
         // Add when/thenReturn here
 
